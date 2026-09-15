@@ -1,0 +1,9 @@
+{
+  "name": "Alastack",
+  "short_name": "Alastack",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0c10",
+  "theme_color": "#0a0c10",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

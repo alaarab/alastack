@@ -1,0 +1,23 @@
+# dependencies
+/node_modules
+
+# build output
+/dist
+/ssr-build
+
+# playwright
+/test-results
+/playwright-report
+/blob-report
+/.playwright
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+*.log
+
+# local env files
+.env
+.env.*.local
