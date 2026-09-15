@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Layout } from "../components/Layout";
-import { ProductCard } from "../components/ProductCard";
-import { capabilities, products, siteMeta } from "../data/siteContent";
+import { ProductCatalog } from "../components/ProductCatalog";
+import { capabilities, siteMeta } from "../data/siteContent";
 import { useDocumentTitle } from "../lib/useDocumentTitle";
 import styles from "../styles/Site.module.css";
 
@@ -30,8 +30,9 @@ export function Home() {
           <h2>Systems that run the business</h2>
         </div>
         <div className={styles.capabilityGrid}>
-          {capabilities.map((item) => (
+          {capabilities.map((item, index) => (
             <article key={item.title} className={styles.capability}>
+              <span className={styles.capabilityIndex}>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </article>
@@ -44,11 +45,7 @@ export function Home() {
           <p className={styles.eyebrow}>Products</p>
           <h2>What we ship</h2>
         </div>
-        <div className={styles.cardGrid}>
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
-        </div>
+        <ProductCatalog />
       </section>
 
       <section className={styles.section}>

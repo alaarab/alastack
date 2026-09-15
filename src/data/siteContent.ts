@@ -1,4 +1,4 @@
-import type { ActionLink, Capability, Product } from "../types";
+import { PRODUCT_GROUPS, type ActionLink, type Capability, type Product } from "../types";
 
 export const siteMeta = {
   name: "Alastack",
@@ -32,6 +32,7 @@ export const capabilities: Capability[] = [
 export const products: Product[] = [
   {
     slug: "intrapath",
+    group: "Business systems",
     name: "Intrapath",
     category: "ERP",
     status: "In development",
@@ -50,6 +51,7 @@ export const products: Product[] = [
   },
   {
     slug: "atlas",
+    group: "Business systems",
     name: "Atlas",
     category: "ITSM",
     status: "Stable",
@@ -68,8 +70,9 @@ export const products: Product[] = [
   },
   {
     slug: "phren",
+    group: "Developer tooling",
     name: "Phren",
-    category: "Developer tooling",
+    category: "Agent memory",
     status: "Available",
     accent: "#7c3aed",
     summary:
@@ -85,8 +88,9 @@ export const products: Product[] = [
   },
   {
     slug: "ogrid",
+    group: "Developer tooling",
     name: "OGrid",
-    category: "Developer tooling",
+    category: "React library",
     status: "Available",
     accent: "#217346",
     summary:
@@ -102,6 +106,7 @@ export const products: Product[] = [
   },
   {
     slug: "mina",
+    group: "Apps",
     name: "Mina",
     category: "iOS app",
     status: "Available",
@@ -119,6 +124,7 @@ export const products: Product[] = [
   },
   {
     slug: "alphalens",
+    group: "Apps",
     name: "AlphaLens",
     category: "Discord bot",
     status: "Available",
@@ -133,8 +139,9 @@ export const products: Product[] = [
   },
   {
     slug: "m4l-builder",
+    group: "Audio tooling",
     name: "m4l-builder",
-    category: "Audio tooling",
+    category: "Python library",
     status: "Available",
     accent: "#b45309",
     summary:
@@ -150,8 +157,9 @@ export const products: Product[] = [
   },
   {
     slug: "livemcp",
+    group: "Audio tooling",
     name: "LiveMCP",
-    category: "Audio tooling",
+    category: "MCP server",
     status: "Available",
     accent: "#0ea5e9",
     summary:
@@ -167,3 +175,9 @@ export const products: Product[] = [
 export const contactLinks: ActionLink[] = [
   { label: "Email", href: `mailto:${siteMeta.email}` },
 ];
+
+/** Products grouped by line of business, in catalog order. Empty groups are dropped. */
+export const productGroups = PRODUCT_GROUPS.map((group) => ({
+  group,
+  items: products.filter((product) => product.group === group),
+})).filter((entry) => entry.items.length > 0);

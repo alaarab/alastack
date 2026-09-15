@@ -3,9 +3,14 @@ export interface ActionLink {
   href: string;
 }
 
+export const PRODUCT_GROUPS = ["Business systems", "Developer tooling", "Apps", "Audio tooling"] as const;
+export type ProductGroup = (typeof PRODUCT_GROUPS)[number];
+
 export interface Product {
   slug: string;
   name: string;
+  /** Line of business the product is listed under on the catalog. */
+  group: ProductGroup;
   /** Short category shown on the card, e.g. "ITSM" or "ERP". */
   category: string;
   /** Lifecycle label, e.g. "Available", "In development". */
