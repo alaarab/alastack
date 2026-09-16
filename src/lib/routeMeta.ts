@@ -1,4 +1,4 @@
-import { products, siteMeta } from "../data/siteContent";
+import { siteMeta } from "../data/siteContent";
 
 /**
  * Per-route <head> metadata plus the sitemap/robots builders. Shared by the
@@ -17,7 +17,7 @@ export interface RouteMeta {
   ogImageAlt: string;
 }
 
-const SITE_OG_ALT = `${siteMeta.name}, ${siteMeta.tagline.toLowerCase()}`;
+const SITE_OG_ALT = `${siteMeta.name}, a software company in ${siteMeta.location}`;
 
 const STATIC_ROUTES: RouteMeta[] = [
   {
@@ -28,39 +28,9 @@ const STATIC_ROUTES: RouteMeta[] = [
     ogImageAlt: SITE_OG_ALT,
   },
   {
-    path: "/services",
-    title: `Services | ${siteMeta.name}`,
-    description:
-      "Financial systems, ERP for project-based businesses, service management, and custom software and integrations, built and operated by Alastack.",
-    ogImage: OG_IMAGE_PATH,
-    ogImageAlt: SITE_OG_ALT,
-  },
-  {
-    path: "/products",
-    title: `Products | ${siteMeta.name}`,
-    description:
-      "Software products from Alastack: ERP, ITSM, developer tooling, and applications.",
-    ogImage: OG_IMAGE_PATH,
-    ogImageAlt: SITE_OG_ALT,
-  },
-  {
-    path: "/company",
-    title: `Company | ${siteMeta.name}`,
-    description: `About Alastack, a software company in ${siteMeta.location} building and operating business systems.`,
-    ogImage: OG_IMAGE_PATH,
-    ogImageAlt: SITE_OG_ALT,
-  },
-  {
-    path: "/contact",
-    title: `Contact | ${siteMeta.name}`,
-    description: "Get in touch with Alastack about a system you need built, a product license, or support.",
-    ogImage: OG_IMAGE_PATH,
-    ogImageAlt: SITE_OG_ALT,
-  },
-  {
     path: "/privacy",
     title: `Privacy policy | ${siteMeta.name}`,
-    description: "How Alastack handles information collected through this website and its products.",
+    description: "How Alastack handles information collected through this website and its software.",
     ogImage: OG_IMAGE_PATH,
     ogImageAlt: SITE_OG_ALT,
   },
@@ -81,34 +51,16 @@ const NOT_FOUND_META: RouteMeta = {
   ogImageAlt: SITE_OG_ALT,
 };
 
-function productMeta(slug: string): RouteMeta | null {
-  const product = products.find((item) => item.slug === slug);
-  if (!product) return null;
-  return {
-    path: `/products/${product.slug}`,
-    title: `${product.name} | ${siteMeta.name}`,
-    description: product.summary,
-    ogImage: OG_IMAGE_PATH,
-    ogImageAlt: `${product.name}, ${product.category}`,
-  };
-}
-
 export function allRoutes(): RouteMeta[] {
-  const productRoutes = products
-    .map((product) => productMeta(product.slug))
-    .filter((meta): meta is RouteMeta => meta !== null);
-  return [...STATIC_ROUTES, ...productRoutes];
+  return [...STATIC_ROUTES];
 }
 
 export function metaForPath(pathname: string): RouteMeta {
   const path = pathname !== "/" ? pathname.replace(/\/+$/, "") : "/";
-  const productMatch = path.match(/^\/products\/([^/]+)$/);
-  if (productMatch) return productMeta(productMatch[1]) ?? NOT_FOUND_META;
   return STATIC_ROUTES.find((route) => route.path === path) ?? NOT_FOUND_META;
 }
 
 export const notFoundMeta = NOT_FOUND_META;
-export const knownProductSlugs = new Set(products.map((product) => product.slug));
 
 function escapeText(value: string): string {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

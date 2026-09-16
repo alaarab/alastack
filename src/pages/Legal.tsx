@@ -20,11 +20,10 @@ function Privacy() {
         If you email us, we keep the correspondence for as long as needed to respond and to maintain a record of the
         business relationship. We do not sell or share your contact details.
       </p>
-      <h2>Products</h2>
+      <h2>Software</h2>
       <p>
-        Our products may have their own privacy practices. Where a product collects data, its documentation or listing
-        describes what is collected and why. Several of our products are designed to keep data on your own devices or
-        infrastructure and send nothing to us.
+        Software we publish may have its own privacy practices, described in its documentation or listing. Much of it is
+        designed to keep data on your own devices or infrastructure and send nothing to us.
       </p>
       <h2>Your rights</h2>
       <p>
@@ -43,13 +42,13 @@ function Terms() {
       <h2>Use of this site</h2>
       <p>
         The content on {siteMeta.domain} is provided for general information about {siteMeta.legalName} and its
-        services and products. You may view and link to it. You may not reproduce it for commercial purposes without
+        software. You may view and link to it. You may not reproduce it for commercial purposes without
         permission.
       </p>
-      <h2>Products and services</h2>
+      <h2>Agreements</h2>
       <p>
-        Product licenses and service engagements are governed by their own agreements. Nothing on this site forms a
-        binding offer; descriptions may change as products develop.
+        Software licenses and any commercial arrangements are governed by their own agreements. Nothing on this site
+        forms a binding offer; descriptions may change as the software develops.
       </p>
       <h2>Open-source software</h2>
       <p>

@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import index from "./index.html";
-import { SITE_ORIGIN, buildRobots, buildSitemap, knownProductSlugs } from "./src/lib/routeMeta";
+import { SITE_ORIGIN, buildRobots, buildSitemap } from "./src/lib/routeMeta";
 
 const isProd = process.env.NODE_ENV === "production";
 const port = Number(process.env.PORT ?? 3000);
@@ -34,17 +34,8 @@ if (isProd) {
       "/sitemap.xml": sitemap,
       "/robots.txt": robots,
       "/": () => html(join(DIST, "index.html")),
-      "/services": () => html(join(DIST, "services", "index.html")),
-      "/products": () => html(join(DIST, "products", "index.html")),
-      "/company": () => html(join(DIST, "company", "index.html")),
-      "/contact": () => html(join(DIST, "contact", "index.html")),
       "/privacy": () => html(join(DIST, "privacy", "index.html")),
       "/terms": () => html(join(DIST, "terms", "index.html")),
-      "/products/:slug": (req) => {
-        const { slug } = req.params;
-        if (!knownProductSlugs.has(slug)) return notFound();
-        return html(join(DIST, "products", slug, "index.html"));
-      },
       "/*": async (req) => {
         const pathname = new URL(req.url).pathname;
         const resolved = join(DIST, pathname);

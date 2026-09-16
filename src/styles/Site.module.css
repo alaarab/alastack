@@ -204,16 +204,24 @@
 .contactBand h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
 .contactBand p { color: var(--ink-soft); max-width: 36rem; }
 
+.areaGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem 2.5rem; }
+.areaGrid h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.areaGrid p { color: var(--ink-soft); font-size: 0.93rem; }
+.footerNav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.footerNav a:hover { color: var(--ink); }
+
 /* Footer */
 .footer { border-top: 1px solid var(--line); background: var(--bg-soft); }
 .footerInner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem clamp(1.25rem, 4vw, 2.5rem) 2rem;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.4fr;
-  gap: 2rem;
-  font-size: 0.9rem;
+  padding: 2rem clamp(1.25rem, 4vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
 .footerBrand { display: flex; flex-direction: column; gap: 0.3rem; }
 .footerMuted { color: var(--ink-dim); }
@@ -231,6 +239,14 @@
 @media (max-width: 760px) {
   .nav { gap: 1.1rem; font-size: 0.88rem; }
   .serviceDetail, .twoCol, .catalogGroup { grid-template-columns: 1fr; gap: 1.25rem; }
-  .footerInner { grid-template-columns: 1fr 1fr; }
-  .catalogLabel { padding-top: 0; }
+  .footerInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem clamp(1.25rem, 4vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
