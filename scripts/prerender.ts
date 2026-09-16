@@ -38,6 +38,13 @@ for (const route of allRoutes()) {
 
 await Bun.write(join(distDir, "404.html"), renderRoute(notFoundMeta));
 await Bun.write(join(distDir, "og.png"), Bun.file(join(repoRoot, "public", "og.png")));
+// Icons and brand assets are not referenced from index.html, so the bundler skips them.
+for (const file of ["favicon.ico", "apple-touch-icon.png", "icon-192.png", "icon-512.png"]) {
+  await Bun.write(join(distDir, file), Bun.file(join(repoRoot, "public", file)));
+}
+for (const file of await Array.fromAsync(new Bun.Glob("*").scan(join(repoRoot, "public", "brand")))) {
+  await Bun.write(join(distDir, "brand", file), Bun.file(join(repoRoot, "public", "brand", file)));
+}
 await Bun.write(join(distDir, "sitemap.xml"), buildSitemap());
 await Bun.write(join(distDir, "robots.txt"), buildRobots());
 

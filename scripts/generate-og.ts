@@ -5,8 +5,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <rect width="1200" height="630" fill="#ffffff"/>
   <rect x="0" y="0" width="1200" height="10" fill="#1d4ed8"/>
   <g transform="translate(96 230)">
-    <rect width="72" height="72" rx="14" fill="#1d4ed8"/>
-    <path d="M15 52 L36 16 L57 52 H47 L36 33 L25 52 Z" fill="#fff"/>
+    <g fill="#1d4ed8" transform="translate(0 -4) scale(0.75)"><path d="M8 84 L48 12 L88 84 H70 L48 44 L26 84 Z"/><rect x="8" y="94" width="80" height="8" rx="2" opacity="0.35"/></g>
     <text x="100" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#14181f">Alastack</text>
   </g>
   <text x="96" y="390" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" fill="#4b5563">Business systems, built and run.</text>

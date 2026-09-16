@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router";
 import { siteMeta } from "../data/siteContent";
 import styles from "../styles/Site.module.css";
+import { Mark } from "./Mark";
 import { SkipLink } from "./SkipLink";
 
 /** Shared header, footer, and page shell for every route. */
@@ -12,7 +13,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.wordmark}>
-            <span className={styles.mark} aria-hidden="true" />
+            <Mark className={styles.mark} />
             {siteMeta.name}
           </Link>
           <nav className={styles.nav} aria-label="Primary">
