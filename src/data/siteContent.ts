@@ -1,4 +1,4 @@
-import type { Area, Fact } from "../types";
+import type { Area } from "../types";
 
 export const siteMeta = {
   name: "Alastack",
@@ -8,7 +8,6 @@ export const siteMeta = {
   intro:
     "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling.",
   email: "hello@alastack.com",
-  founded: "2026",
 };
 
 /** The kinds of software the company builds. Categories, not a product catalog. */
@@ -35,8 +34,3 @@ export const areas: Area[] = [
   },
 ];
 
-export const facts: Fact[] = [
-  { label: "Founded", value: siteMeta.founded },
-  { label: "Business", value: "Software development and operation" },
-  { label: "Email", value: siteMeta.email },
-];

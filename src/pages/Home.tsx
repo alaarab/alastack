@@ -1,5 +1,5 @@
 import { Layout } from "../components/Layout";
-import { areas, facts, siteMeta } from "../data/siteContent";
+import { areas, siteMeta } from "../data/siteContent";
 import { useDocumentTitle } from "../lib/useDocumentTitle";
 import styles from "../styles/Site.module.css";
 
@@ -33,8 +33,7 @@ export function Home() {
         <div className={styles.sectionHead}>
           <h2>Company</h2>
         </div>
-        <div className={styles.twoCol}>
-          <div className={styles.prose}>
+        <div className={styles.prose}>
             <p>
               Alastack builds software for organizations whose work does not fit off-the-shelf systems, and runs
               that software after it ships. The company owns and operates its products directly.
@@ -43,15 +42,6 @@ export function Home() {
               For licensing, partnership, or press, email{" "}
               <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>.
             </p>
-          </div>
-          <dl className={styles.facts}>
-            {facts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
     </Layout>
