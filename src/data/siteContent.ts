@@ -6,8 +6,7 @@ export const siteMeta = {
   domain: "alastack.com",
   tagline: "A software company.",
   intro:
-    "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling. Based in Los Angeles.",
-  location: "Los Angeles, California",
+    "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling.",
   email: "hello@alastack.com",
   founded: "2026",
 };
@@ -38,7 +37,6 @@ export const areas: Area[] = [
 
 export const facts: Fact[] = [
   { label: "Founded", value: siteMeta.founded },
-  { label: "Headquarters", value: siteMeta.location },
   { label: "Business", value: "Software development and operation" },
   { label: "Email", value: siteMeta.email },
 ];

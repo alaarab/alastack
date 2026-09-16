@@ -17,7 +17,7 @@ export interface RouteMeta {
   ogImageAlt: string;
 }
 
-const SITE_OG_ALT = `${siteMeta.name}, a software company in ${siteMeta.location}`;
+const SITE_OG_ALT = `${siteMeta.name}, a software company`;
 
 const STATIC_ROUTES: RouteMeta[] = [
   {

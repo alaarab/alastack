@@ -25,7 +25,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <p>
-            © {new Date().getFullYear()} {siteMeta.legalName}. {siteMeta.location}.
+            © {new Date().getFullYear()} {siteMeta.legalName}. All rights reserved.
           </p>
           <nav className={styles.footerNav} aria-label="Legal">
             <Link to="/privacy">Privacy</Link>
