@@ -1,10 +1,7 @@
 import { Link } from "react-router";
+import { accentStyle } from "../lib/accentStyle";
 import styles from "../styles/Site.module.css";
 import type { Product } from "../types";
-
-export function accentStyle(accent?: string) {
-  return accent ? ({ "--card-accent": accent } as React.CSSProperties) : undefined;
-}
 
 export function ProductCard({ product }: { product: Product }) {
   return (

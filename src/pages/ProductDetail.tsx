@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router";
 import { ActionLinks } from "../components/ActionLinks";
 import { Layout } from "../components/Layout";
-import { ProductCard, accentStyle } from "../components/ProductCard";
+import { ProductCard } from "../components/ProductCard";
+import { accentStyle } from "../lib/accentStyle";
 import { products, siteMeta } from "../data/siteContent";
 import { useDocumentTitle } from "../lib/useDocumentTitle";
 import styles from "../styles/Site.module.css";
