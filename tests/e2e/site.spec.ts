@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("home states the company and what it builds", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Alastack is a software company.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Business systems, built and run.");
   await expect(page.getByRole("heading", { level: 2, name: "What we build" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Company" })).toBeVisible();
   await expect(page.getByRole("link", { name: "hello@alastack.com" }).first()).toBeVisible();

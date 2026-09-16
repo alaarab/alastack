@@ -11,7 +11,7 @@ export function Home() {
       <section className={styles.heroBand}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Alastack LLC</p>
-          <h1>{siteMeta.name} is a software company.</h1>
+          <h1>{siteMeta.tagline}</h1>
           <p className={styles.lede}>{siteMeta.intro}</p>
         </div>
       </section>

@@ -4,7 +4,7 @@ export const siteMeta = {
   name: "Alastack",
   legalName: "Alastack LLC",
   domain: "alastack.com",
-  tagline: "A software company.",
+  tagline: "Business systems, built and run.",
   intro:
     "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling.",
   email: "hello@alastack.com",
