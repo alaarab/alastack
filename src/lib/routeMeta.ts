@@ -28,10 +28,46 @@ const STATIC_ROUTES: RouteMeta[] = [
     ogImageAlt: SITE_OG_ALT,
   },
   {
+    path: "/services",
+    title: `Services | ${siteMeta.name}`,
+    description:
+      "Financial systems, ERP for project-based businesses, service management, and custom software and integrations, built and operated by Alastack.",
+    ogImage: OG_IMAGE_PATH,
+    ogImageAlt: SITE_OG_ALT,
+  },
+  {
     path: "/products",
     title: `Products | ${siteMeta.name}`,
     description:
-      "Financial systems, ERP, service management, developer tooling, and apps from Alastack.",
+      "Software products from Alastack: ERP, ITSM, developer tooling, and applications.",
+    ogImage: OG_IMAGE_PATH,
+    ogImageAlt: SITE_OG_ALT,
+  },
+  {
+    path: "/company",
+    title: `Company | ${siteMeta.name}`,
+    description: `About Alastack, a software company in ${siteMeta.location} building and operating business systems.`,
+    ogImage: OG_IMAGE_PATH,
+    ogImageAlt: SITE_OG_ALT,
+  },
+  {
+    path: "/contact",
+    title: `Contact | ${siteMeta.name}`,
+    description: "Get in touch with Alastack about a system you need built, a product license, or support.",
+    ogImage: OG_IMAGE_PATH,
+    ogImageAlt: SITE_OG_ALT,
+  },
+  {
+    path: "/privacy",
+    title: `Privacy policy | ${siteMeta.name}`,
+    description: "How Alastack handles information collected through this website and its products.",
+    ogImage: OG_IMAGE_PATH,
+    ogImageAlt: SITE_OG_ALT,
+  },
+  {
+    path: "/terms",
+    title: `Terms of use | ${siteMeta.name}`,
+    description: "Terms governing use of the Alastack website.",
     ogImage: OG_IMAGE_PATH,
     ogImageAlt: SITE_OG_ALT,
   },

@@ -1,31 +1,86 @@
-import { PRODUCT_GROUPS, type ActionLink, type Capability, type Product } from "../types";
+import { PRODUCT_GROUPS, type Product, type Service, type Step } from "../types";
 
 export const siteMeta = {
   name: "Alastack",
+  legalName: "Alastack",
   domain: "alastack.com",
-  tagline: "Software for running a business.",
+  tagline: "Business software, built and operated.",
   intro:
-    "Alastack is a software company. We build financial systems, ERPs, service management platforms, developer tooling, and apps.",
+    "Alastack is a software company in Los Angeles. We build and operate financial systems, ERPs, service management platforms, and applications for organizations that need software to fit the way they work.",
   location: "Los Angeles, California",
   email: "hello@alastack.com",
+  founded: "2026",
 };
 
-export const capabilities: Capability[] = [
+export const services: Service[] = [
   {
+    slug: "financial-systems",
     title: "Financial systems",
-    body: "Accounting, billing, budgeting, and reporting built around how project-based businesses actually run.",
+    summary: "Accounting, billing, budgeting, and reporting built around how your organization actually runs.",
+    body: "General ledger, accounts payable and receivable, job costing, invoicing, and the reports that management reads every week. We build financial systems that match the business's real workflow, integrate with the payroll and banking systems already in place, and hold up to an audit.",
+    deliverables: ["Billing and invoicing", "Budgeting and job costing", "Financial reporting", "Payroll and bank integration"],
   },
   {
-    title: "ERP",
-    body: "Project management, timesheets, expenses, approvals, and the workflow that ties them together in one system.",
+    slug: "erp",
+    title: "ERP for project-based businesses",
+    summary: "Projects, timesheets, expenses, approvals, and billing in one system with one approval workflow.",
+    body: "Consulting, engineering, and services firms run on projects. We build ERPs where the project is the center of the data model: time and expense flow into budgets, approvals follow a defined workflow, and billing comes straight from approved work. Intrapath is our product in this space; we also build and extend custom systems.",
+    deliverables: ["Project and budget management", "Time and expense capture", "Approval workflows", "Multi-entity organizations"],
   },
   {
+    slug: "service-management",
     title: "Service management",
-    body: "ITSM platforms with ticket queues, relationships, and an interface your tools and agents can read.",
+    summary: "ITSM and ticketing platforms with queues, relationships, and an interface your other tools can read.",
+    body: "Ticket intake, queues, SLAs, relationships between incidents and changes, and reporting for the people running the service desk. Atlas is our ITSM platform; it runs in the browser and mirrors every ticket to disk so your editor, scripts, and AI tools can work the same queue.",
+    deliverables: ["Ticket intake and queues", "Relationship graphs", "Reporting and health", "Editor and agent access"],
   },
   {
-    title: "Apps and tooling",
-    body: "Mobile apps, developer libraries, and integrations that connect systems and put data where it is needed.",
+    slug: "custom-software",
+    title: "Custom software and integrations",
+    summary: "Internal tools, data pipelines, and integrations that connect the systems you already have.",
+    body: "Most organizations run on a handful of systems that do not talk to each other. We build the tooling in between: CRM to reporting, ERP to payroll, field data to the database. Web applications, mobile apps, and the automation that keeps data moving without someone exporting a spreadsheet.",
+    deliverables: ["Web and mobile applications", "System integrations", "Data pipelines and reporting", "Ongoing operation and support"],
+  },
+];
+
+export const process: Step[] = [
+  {
+    title: "Discovery",
+    body: "We start with how the work actually happens today: the systems, the spreadsheets, the approvals, and the people. The output is a scope and a data model, not a slide deck.",
+  },
+  {
+    title: "Build",
+    body: "Short cycles with working software from the first weeks. You see real screens on real data and we adjust before anything calcifies.",
+  },
+  {
+    title: "Operate",
+    body: "We run what we build: hosting, monitoring, backups, security updates, and the changes a business needs after launch. Or we hand it to your team with the documentation to run it themselves.",
+  },
+];
+
+export const companyFacts: { label: string; value: string }[] = [
+  { label: "Founded", value: siteMeta.founded },
+  { label: "Based in", value: siteMeta.location },
+  { label: "Focus", value: "Business systems and applications" },
+  { label: "Contact", value: siteMeta.email },
+];
+
+export const principles: { title: string; body: string }[] = [
+  {
+    title: "The workflow is the product",
+    body: "A business system is only as good as its fit to the way people work. We model the workflow first and build the screens around it.",
+  },
+  {
+    title: "Own your data",
+    body: "Plain formats, open interfaces, and exports that work. Nothing we build should hold your data hostage.",
+  },
+  {
+    title: "Software has to be run",
+    body: "Launch is the middle of the project. We plan for operation, monitoring, and change from the start.",
+  },
+  {
+    title: "Small and direct",
+    body: "You work with the people building the system. No account layer between you and the engineering.",
   },
 ];
 
@@ -170,10 +225,6 @@ export const products: Product[] = [
     stack: ["Python", "MCP", "Ableton Live"],
     links: [{ label: "GitHub", href: "https://github.com/alaarab/livemcp" }],
   },
-];
-
-export const contactLinks: ActionLink[] = [
-  { label: "Email", href: `mailto:${siteMeta.email}` },
 ];
 
 /** Products grouped by line of business, in catalog order. Empty groups are dropped. */

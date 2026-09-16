@@ -1,24 +1,20 @@
 import { Layout } from "../components/Layout";
+import { PageHead } from "../components/PageHead";
 import { ProductCatalog } from "../components/ProductCatalog";
 import { siteMeta } from "../data/siteContent";
 import { useDocumentTitle } from "../lib/useDocumentTitle";
-import styles from "../styles/Site.module.css";
 
 export function Products() {
   useDocumentTitle(`Products | ${siteMeta.name}`);
 
   return (
     <Layout>
-      <section className={styles.pageHead}>
-        <p className={styles.eyebrow}>Products</p>
-        <h1>Everything we ship</h1>
-        <p className={styles.lede}>
-          Business systems, developer tooling, and apps. Each one links to its docs, source, or a way to get in touch.
-        </p>
-      </section>
-      <section className={styles.section}>
-        <ProductCatalog />
-      </section>
+      <PageHead
+        eyebrow="Products"
+        title="Software we build and sell"
+        lede="Business systems available to license, plus open-source tooling and applications we maintain. Each product links to its documentation, source, or a way to get in touch."
+      />
+      <ProductCatalog />
     </Layout>
   );
 }

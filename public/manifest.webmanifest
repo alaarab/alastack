@@ -3,7 +3,7 @@
   "short_name": "Alastack",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#0a0c10",
-  "theme_color": "#0a0c10",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }

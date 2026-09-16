@@ -34,7 +34,12 @@ if (isProd) {
       "/sitemap.xml": sitemap,
       "/robots.txt": robots,
       "/": () => html(join(DIST, "index.html")),
+      "/services": () => html(join(DIST, "services", "index.html")),
       "/products": () => html(join(DIST, "products", "index.html")),
+      "/company": () => html(join(DIST, "company", "index.html")),
+      "/contact": () => html(join(DIST, "contact", "index.html")),
+      "/privacy": () => html(join(DIST, "privacy", "index.html")),
+      "/terms": () => html(join(DIST, "terms", "index.html")),
       "/products/:slug": (req) => {
         const { slug } = req.params;
         if (!knownProductSlugs.has(slug)) return notFound();

@@ -2,8 +2,8 @@ import { Link, useParams } from "react-router";
 import { ActionLinks } from "../components/ActionLinks";
 import { Layout } from "../components/Layout";
 import { ProductCard } from "../components/ProductCard";
-import { accentStyle } from "../lib/accentStyle";
 import { products, siteMeta } from "../data/siteContent";
+import { accentStyle } from "../lib/accentStyle";
 import { useDocumentTitle } from "../lib/useDocumentTitle";
 import styles from "../styles/Site.module.css";
 import { NotFound } from "./NotFound";
@@ -22,43 +22,48 @@ export function ProductDetail() {
 
   return (
     <Layout>
-      <article className={styles.detail} style={accentStyle(product.accent)}>
-        <Link to="/products" className={styles.backLink}>← All products</Link>
-        <div className={styles.detailGrid}>
-          <div className={styles.detailMain}>
-            <p className={styles.eyebrow}>{product.group}</p>
-            <h1>{product.name}</h1>
-            <p className={styles.lede}>{product.summary}</p>
-            <p className={styles.detailBody}>{product.description}</p>
-            <ul className={styles.highlights}>
+      <article style={accentStyle(product.accent)}>
+        <section className={styles.pageHead}>
+          <Link to="/products" className={styles.backLink}>← All products</Link>
+          <p className={styles.eyebrow}>{product.group} · {product.category}</p>
+          <h1>{product.name}</h1>
+          <p className={styles.lede}>{product.summary}</p>
+        </section>
+        <div className={styles.twoCol}>
+          <div className={styles.prose}>
+            <p>{product.description}</p>
+            <ul className={styles.checkList}>
               {product.highlights.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
-          <aside className={styles.spec} aria-label={`${product.name} at a glance`}>
-            <dl>
-              <dt>Category</dt>
-              <dd>{product.category}</dd>
+          <aside aria-label={`${product.name} at a glance`}>
+            <dl className={styles.facts}>
+            <div>
               <dt>Status</dt>
               <dd>{product.status}</dd>
+            </div>
+            <div>
               <dt>Built with</dt>
+              <dd>{product.stack.join(", ")}</dd>
+            </div>
+            <div>
+              <dt>Links</dt>
               <dd>
-                <ul className={styles.tagList}>
-                  {product.stack.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                <ActionLinks links={product.links} className={styles.factLinks} />
               </dd>
+            </div>
             </dl>
-            <ActionLinks links={product.links} className={styles.detailLinks} />
           </aside>
         </div>
       </article>
 
       <section className={styles.section}>
-        <h2 className={`${styles.catalogLabel} ${styles.relatedLabel}`}>More from Alastack</h2>
-        <div className={styles.cardGrid}>
+        <div className={styles.sectionHead}>
+          <h2>More products</h2>
+        </div>
+        <div className={styles.productList}>
           {related.map((item) => (
             <ProductCard key={item.slug} product={item} />
           ))}
