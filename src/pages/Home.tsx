@@ -8,20 +8,23 @@ export function Home() {
 
   return (
     <Layout>
-      <section className={styles.hero}>
-        <h1>
-          {siteMeta.name} is a software company.
-        </h1>
-        <p className={styles.lede}>{siteMeta.intro}</p>
+      <section className={styles.heroBand}>
+        <div className={styles.hero}>
+          <p className={styles.eyebrow}>Alastack LLC</p>
+          <h1>{siteMeta.name} is a software company.</h1>
+          <p className={styles.lede}>{siteMeta.intro}</p>
+        </div>
       </section>
 
+      <div className={styles.container}>
       <section className={styles.section}>
-        <div className={styles.sectionHead}>
+        <div className={`${styles.sectionHead} ${styles.sectionHeadPlain}`}>
           <h2>What we build</h2>
         </div>
         <div className={styles.areaGrid}>
-          {areas.map((area) => (
-            <article key={area.title}>
+          {areas.map((area, index) => (
+            <article key={area.title} className={styles.area}>
+              <span className={styles.areaIndex}>{String(index + 1).padStart(2, "0")}</span>
               <h3>{area.title}</h3>
               <p>{area.body}</p>
             </article>
@@ -44,6 +47,7 @@ export function Home() {
             </p>
         </div>
       </section>
+      </div>
     </Layout>
   );
 }

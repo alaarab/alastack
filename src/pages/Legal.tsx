@@ -75,9 +75,11 @@ export function Legal({ page }: { page: "privacy" | "terms" }) {
 
   return (
     <Layout>
-      <PageHead eyebrow="Legal" title={title} lede={`Last updated ${UPDATED}.`} />
-      <div className={`${styles.prose} ${styles.proseNarrow}`}>
-        {page === "privacy" ? <Privacy /> : <Terms />}
+      <div className={styles.container}>
+        <PageHead eyebrow="Legal" title={title} lede={`Last updated ${UPDATED}.`} />
+        <div className={`${styles.prose} ${styles.proseNarrow}`}>
+          {page === "privacy" ? <Privacy /> : <Terms />}
+        </div>
       </div>
     </Layout>
   );

@@ -10,9 +10,11 @@ export function NotFound() {
 
   return (
     <Layout>
-      <PageHead eyebrow="404" title="Page not found" lede="That page does not exist, or it moved." />
-      <div className={styles.ctaRow}>
-        <Link className={styles.secondaryCta} to="/">Home</Link>
+      <div className={styles.container}>
+        <PageHead eyebrow="404" title="Page not found" lede="That page does not exist, or it moved." />
+        <div className={styles.ctaRow}>
+          <Link className={styles.secondaryCta} to="/">Home</Link>
+        </div>
       </div>
     </Layout>
   );

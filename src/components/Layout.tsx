@@ -12,6 +12,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.wordmark}>
+            <span className={styles.mark} aria-hidden="true" />
             {siteMeta.name}
           </Link>
           <nav className={styles.nav} aria-label="Primary">
@@ -19,9 +20,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </nav>
         </div>
       </header>
-      <main id="main" className={styles.main}>
-        {children}
-      </main>
+      <main id="main">{children}</main>
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <p>
