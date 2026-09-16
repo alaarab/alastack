@@ -2,11 +2,11 @@ import type { Area, Fact } from "../types";
 
 export const siteMeta = {
   name: "Alastack",
-  legalName: "Alastack",
+  legalName: "Alastack LLC",
   domain: "alastack.com",
   tagline: "A software company.",
   intro:
-    "Alastack develops and operates business software: financial systems, ERP, service management platforms, and applications. Based in Los Angeles.",
+    "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling. Based in Los Angeles.",
   location: "Los Angeles, California",
   email: "hello@alastack.com",
   founded: "2026",
@@ -28,7 +28,11 @@ export const areas: Area[] = [
   },
   {
     title: "Applications",
-    body: "Mobile and web applications, developer tooling, and the integrations that connect them.",
+    body: "Mobile and web applications, from consumer apps to internal tools.",
+  },
+  {
+    title: "Custom tooling",
+    body: "Developer tooling, automation, and the integrations that move data between systems.",
   },
 ];
 

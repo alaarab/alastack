@@ -204,7 +204,7 @@
 .contactBand h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
 .contactBand p { color: var(--ink-soft); max-width: 36rem; }
 
-.areaGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem 2.5rem; }
+.areaGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem 2.5rem; }
 .areaGrid h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
 .areaGrid p { color: var(--ink-soft); font-size: 0.93rem; }
 .footerNav { display: flex; flex-wrap: wrap; gap: 1.5rem; }

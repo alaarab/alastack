@@ -10,7 +10,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
     <text x="100" y="56" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#14181f">Alastack</text>
   </g>
   <text x="96" y="390" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" fill="#4b5563">A software company.</text>
-  <text x="96" y="445" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" fill="#7b8494">Financial systems · ERP · Service management · Applications</text>
+  <text x="96" y="445" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" fill="#7b8494">Financial systems · ERP · Service management · Applications · Custom tooling</text>
   <text x="96" y="560" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#1d4ed8">alastack.com</text>
 </svg>`;
 
