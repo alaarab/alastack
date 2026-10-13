@@ -13,7 +13,11 @@ const templateFile = Bun.file(join(distDir, "index.html"));
 if (!(await templateFile.exists())) {
   throw new Error("dist/index.html not found. Run `bun build ./index.html --outdir=dist` first.");
 }
-const template = await templateFile.text();
+// The bundler would try to resolve a preload for the external /fonts/ path, so add it here.
+const FONT_PRELOAD = '<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />';
+const shell = await templateFile.text();
+if (!shell.includes("</head>")) throw new Error("prerender: could not find </head> in dist/index.html.");
+const template = shell.replace("</head>", `${FONT_PRELOAD}</head>`);
 
 const serverEntry = join(repoRoot, "ssr-build", "entry-server.js");
 if (!(await Bun.file(serverEntry).exists())) {
@@ -41,12 +45,14 @@ const notFoundHtml = renderRoute(notFoundMeta);
 if (!notFoundHtml.includes("</head>")) throw new Error("prerender: could not find </head> in the 404 page.");
 await Bun.write(join(distDir, "404.html"), notFoundHtml.replace("</head>", '  <meta name="robots" content="noindex" />\n  </head>'));
 await Bun.write(join(distDir, "og.png"), Bun.file(join(repoRoot, "public", "og.png")));
-// Icons and brand assets are not referenced from index.html, so the bundler skips them.
+// Icons, brand assets, and fonts are not bundled (fonts are external in the build), so copy them.
 for (const file of ["favicon.ico", "favicon.svg", "apple-touch-icon.png", "icon-192.png", "icon-512.png"]) {
   await Bun.write(join(distDir, file), Bun.file(join(repoRoot, "public", file)));
 }
-for (const file of await Array.fromAsync(new Bun.Glob("*").scan(join(repoRoot, "public", "brand")))) {
-  await Bun.write(join(distDir, "brand", file), Bun.file(join(repoRoot, "public", "brand", file)));
+for (const dir of ["brand", "fonts"]) {
+  for (const file of await Array.fromAsync(new Bun.Glob("*").scan(join(repoRoot, "public", dir)))) {
+    await Bun.write(join(distDir, dir, file), Bun.file(join(repoRoot, "public", dir, file)));
+  }
 }
 await Bun.write(join(distDir, "sitemap.xml"), buildSitemap());
 await Bun.write(join(distDir, "robots.txt"), buildRobots());
