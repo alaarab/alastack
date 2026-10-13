@@ -36,10 +36,13 @@ for (const route of allRoutes()) {
   pages += 1;
 }
 
-await Bun.write(join(distDir, "404.html"), renderRoute(notFoundMeta));
+// Keep the 404 page out of search indexes.
+const notFoundHtml = renderRoute(notFoundMeta);
+if (!notFoundHtml.includes("</head>")) throw new Error("prerender: could not find </head> in the 404 page.");
+await Bun.write(join(distDir, "404.html"), notFoundHtml.replace("</head>", '  <meta name="robots" content="noindex" />\n  </head>'));
 await Bun.write(join(distDir, "og.png"), Bun.file(join(repoRoot, "public", "og.png")));
 // Icons and brand assets are not referenced from index.html, so the bundler skips them.
-for (const file of ["favicon.ico", "apple-touch-icon.png", "icon-192.png", "icon-512.png"]) {
+for (const file of ["favicon.ico", "favicon.svg", "apple-touch-icon.png", "icon-192.png", "icon-512.png"]) {
   await Bun.write(join(distDir, file), Bun.file(join(repoRoot, "public", file)));
 }
 for (const file of await Array.fromAsync(new Bun.Glob("*").scan(join(repoRoot, "public", "brand")))) {

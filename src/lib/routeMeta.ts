@@ -102,11 +102,10 @@ export function applyRouteMeta(html: string, meta: RouteMeta, origin: string = S
 }
 
 export function buildSitemap(origin: string = SITE_ORIGIN): string {
-  const today = new Date().toISOString().slice(0, 10);
   const body = allRoutes()
     .map((route) => {
       const loc = route.path === "/" ? `${origin}/` : `${origin}${route.path}`;
-      return `  <url><loc>${loc}</loc><lastmod>${today}</lastmod></url>`;
+      return `  <url><loc>${loc}</loc></url>`;
     })
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;

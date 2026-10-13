@@ -24,7 +24,8 @@ export function Layout({ children }: { children: ReactNode }) {
       <main id="main">{children}</main>
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <p>
+          {/* The year is fixed at prerender time and can differ from the visitor's clock. */}
+          <p suppressHydrationWarning>
             © {new Date().getFullYear()} {siteMeta.legalName}. All rights reserved.
           </p>
           <nav className={styles.footerNav} aria-label="Legal">
