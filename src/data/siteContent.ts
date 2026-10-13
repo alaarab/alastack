@@ -1,4 +1,4 @@
-import type { Area } from "../types";
+import type { Area, Product } from "../types";
 
 export const siteMeta = {
   name: "Alastack",
@@ -8,6 +8,7 @@ export const siteMeta = {
   intro:
     "Alastack develops and operates business software: financial systems, ERP, service management platforms, applications, and custom tooling.",
   email: "hello@alastack.com",
+  founder: { name: "Ala Arab", href: "https://alaarab.com" },
 };
 
 /** The kinds of software the company builds. Categories, not a product catalog. */
@@ -34,3 +35,19 @@ export const areas: Area[] = [
   },
 ];
 
+
+/** Products Alastack publishes and runs. Each one links back here. */
+export const products: Product[] = [
+  {
+    name: "Phren",
+    body: "Memory for AI coding agents: findings, tasks, and skills in a Git-backed store that follows you between machines.",
+    href: "https://alaarab.github.io/phren/",
+    linkLabel: "alaarab.github.io/phren",
+  },
+  {
+    name: "gitboy",
+    body: "A self-hosted Git server with pull requests, issues, and CI.",
+    href: "https://gitboy.dev",
+    linkLabel: "gitboy.dev",
+  },
+];
