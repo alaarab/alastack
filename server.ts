@@ -63,6 +63,7 @@ if (isProd) {
     routes: {
       "/sitemap.xml": sitemap,
       "/robots.txt": robots,
+      "/fonts/*": (req) => new Response(Bun.file(join(import.meta.dir, "public", new URL(req.url).pathname))),
       "/*": index,
     },
   });

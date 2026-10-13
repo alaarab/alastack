@@ -68,3 +68,12 @@ test("pages hydrate without console errors", async ({ page }) => {
   }
   expect(errors).toEqual([]);
 });
+
+test("pages load only first-party resources, including the font", async ({ page, baseURL }) => {
+  const origins = new Set<string>();
+  page.on("request", (request) => origins.add(new URL(request.url()).origin));
+  const font = page.waitForResponse((response) => response.url().endsWith("/fonts/inter-latin.woff2"));
+  await page.goto("/");
+  expect((await font).status()).toBe(200);
+  expect([...origins]).toEqual([new URL(baseURL!).origin]);
+});
