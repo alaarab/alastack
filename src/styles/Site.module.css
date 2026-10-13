@@ -107,6 +107,19 @@
 .areaIndex { display: block; margin-bottom: 1.25rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); font-variant-numeric: tabular-nums; }
 .area h3 { font-size: 1.1rem; margin-bottom: 0.45rem; }
 .area p { color: var(--ink-soft); font-size: 0.93rem; }
+.productList { list-style: none; margin: 0; padding: 0; }
+.product {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.product h3 { font-size: 1.1rem; }
+.product p { color: var(--ink-soft); font-size: 0.93rem; }
+.productLink { color: var(--accent); font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+.productLink:hover { text-decoration: underline; text-underline-offset: 0.15em; }
 .footerNav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .footerNav a:hover { color: #fff; }
 
@@ -125,4 +138,5 @@
 
 @media (max-width: 760px) {
   .nav { gap: 1.1rem; font-size: 0.88rem; }
+  .product { grid-template-columns: 1fr; gap: 0.35rem; }
 }

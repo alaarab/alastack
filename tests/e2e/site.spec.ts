@@ -77,3 +77,11 @@ test("pages load only first-party resources, including the font", async ({ page,
   expect((await font).status()).toBe(200);
   expect([...origins]).toEqual([new URL(baseURL!).origin]);
 });
+
+test("home lists the products and links out to each, and to the founder", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 2, name: "Products" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /alaarab\.github\.io\/phren/ })).toHaveAttribute("href", "https://alaarab.github.io/phren/");
+  await expect(page.getByRole("link", { name: /gitboy\.dev/ })).toHaveAttribute("href", "https://gitboy.dev");
+  await expect(page.getByRole("link", { name: "Ala Arab" })).toHaveAttribute("href", "https://alaarab.com");
+});
