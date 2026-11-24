@@ -23,5 +23,5 @@ deploy_production:
     DEPLOY_TARGET: alaarab@95.216.172.145
     DEPLOY_PORT: "22"
   script:
-    - k="$(mktemp)" && trap 'rm -f "$k"' EXIT && install -m 600 "$DEPLOY_SSH_KEY" "$k"
+    - k="$(mktemp)" && trap 'rm -f "$k"' EXIT && printf '%s\n' "$(cat "$DEPLOY_SSH_KEY")" >"$k"
     - ssh -i "$k" -p "$DEPLOY_PORT" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$DEPLOY_KNOWN_HOSTS" -o LogLevel=ERROR "$DEPLOY_TARGET" "deploy $GITBOY_SHA"
