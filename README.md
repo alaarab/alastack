@@ -11,3 +11,6 @@ bun dev          # http://localhost:3000 with HMR
 
 `bun run build` bundles the client, builds a server-render bundle, and prerenders one static HTML file per route (`scripts/prerender.ts`) with its own title, description, canonical URL, and Open Graph tags. `bun start` builds and serves `dist/`. `bun run og` regenerates `public/og.png` (needs `rsvg-convert`). Run `bun run typecheck`, `bun run build`, and `bun run test` before shipping.
 
+## Deploying
+
+Merging to `main` deploys. gitboy.dev picks up the new commit from GitHub within about 30 seconds and runs `deploy_production` (`.gitboy.yml`): the alastack server builds that commit with its pinned Bun, switches `~/apps/alastack/current`, checks that `/` serves the new build, and rolls back by itself if it doesn't. To roll back by hand, open gitboy.dev/alaarab/alastack → Environments → production and Redeploy an earlier deployment. Setup and the by-hand path: github.com/alaarab/infra.
